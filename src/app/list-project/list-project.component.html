@@ -1,0 +1,43 @@
+
+
+
+  <mat-card class="center"><h1 class="p1">Liste of Projects</h1>
+    <div class="center1">
+        <app-search (searchTextChange)="onSearchTextEntered($event)"></app-search>
+      </div>
+    <ng-container *ngFor="let row of projectdata"> 
+
+    <div class="row">
+        <div class="column">
+          <div class="card">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      
+        <div class="container" *ngIf="searchText === '' || row.title.toLowerCase().includes(searchText) || row.author.toLowerCase().includes(searchText) || row.startdate.toLowerCase().includes(searchText) || row.description.toLowerCase().includes(searchText) || row.enddate.toLowerCase().includes(searchText) ">
+        
+      <div class="px-6 py-4">
+       
+        <div class="font-bold text-xl mb-2">Title : {{row.title}}</div>
+        <div class="font-bold text-xl mb-2">Author : {{row.author}}</div>
+        <div class="font-bold text-xl mb-2">Description : {{row.description}}</div>
+        <div class="font-bold text-xl mb-2">Start Date : {{row.startdate | date}}</div>
+        <div class="font-bold text-xl mb-2">End Date : {{row.enddate | date}}</div>
+        <button (click)="editArtical(row)" type="button" class="text-black bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+        <mat-icon>edit</mat-icon> </button>
+        <button type="button" (click)="deleteProject(row)" class="text-black bg-gradient-to-r from-red-500 via-red-600 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">   <mat-icon>delete</mat-icon></button>
+       </div>
+       <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Author</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Project</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Contribution</span>
+      </div>
+      </div>
+  
+      
+     </div>
+    </div>
+  </div>
+  </div>
+    </ng-container>
+</mat-card>
+  

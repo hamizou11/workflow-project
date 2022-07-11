@@ -1,0 +1,42 @@
+{
+  "projects": [
+    {
+      "title": "hamza",
+      "author": "hamza",
+      "description": "this is a new project  a",
+      "startdate": "2022-07-30T22:00:00.000Z",
+      "enddate": "2022-07-25T22:00:00.000Z",
+      "id": 1
+    },
+    {
+      "id": 3,
+      "title": "hhhh",
+      "author": "dia 2",
+      "description": "yeahhh",
+      "startdate": "2022-07-12T22:00:00.000Z",
+      "enddate": "2022-07-27T22:00:00.000Z"
+    },
+    {
+      "id": [],
+      "title": "hamza",
+      "author": "hamza",
+      "description": "hmaza",
+      "startdate": "2022-07-17T22:00:00.000Z",
+      "enddate": "2022-07-22T22:00:00.000Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "username": "hamza",
+    "mobilenumber": 28910976,
+    "email": "marwani.3@hotmail.com",
+    "password": "hamza"
+  },
+  "aaa": {}
+}

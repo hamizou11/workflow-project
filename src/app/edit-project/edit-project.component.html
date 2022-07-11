@@ -1,0 +1,41 @@
+<mat-card class="center"><h1 class="p1">Edit Your Project</h1>
+    <form class="example-form" [formGroup]=  "formValue">
+    <mat-form-field class="example-full-width " appearance="outline">
+      
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput>
+        
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width " appearance="outline">
+       
+        <mat-label>Author</mat-label>
+        <input formControlName="author" matInput>
+      </mat-form-field>
+      <mat-form-field class="example-full-width " appearance="outline">
+        
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+      </mat-form-field>
+      <mat-form-field class="example-full-width " appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input formControlName="startdate" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width " appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input formControlName="enddate" matInput [matDatepicker]="picker2">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field><br>
+      <div mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="addProject()">{{actionBtn}}
+            <mat-icon>edit</mat-icon> </button>
+       
+      </div>
+    
+    </form>
+    </mat-card>
