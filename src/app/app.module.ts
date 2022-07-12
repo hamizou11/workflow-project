@@ -32,6 +32,11 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ContributeComponent } from './contribute/contribute.component';
+import { NgChartsModule } from 'ng2-charts';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { RatingComponent } from './rating/rating.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +51,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     SearchComponent,
     EditProjectComponent,
     LoadingSpinnerComponent,
-    CalendarComponent
+    CalendarComponent,
+    ContributeComponent,
+    RatingComponent
   
    
  
@@ -71,7 +78,9 @@ import { CalendarComponent } from './calendar/calendar.component';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    ScheduleModule
+    ScheduleModule,
+    NgChartsModule,
+    NgxStarRatingModule
     
     
     

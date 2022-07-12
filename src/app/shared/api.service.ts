@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { ProjectModel } from '../project.module';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+
+  project : ProjectModel= new ProjectModel();
 
   constructor(private http : HttpClient,private authService : AuthService) { }
   post(data :any){
@@ -35,6 +38,12 @@ export class ApiService {
     }))
     
   }
-
+  put_cont(data :any ,id:number){
+    return this.http.put<any>("http://localhost:3000/projects/"+id,data).pipe(map((res:any)=>{ 
+      this.project.contributers++ ;
+      return res ;
+    }))
+    
+  }
   
 }

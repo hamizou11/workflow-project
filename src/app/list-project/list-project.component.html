@@ -1,7 +1,7 @@
 
 
 
-  <mat-card class="center"><h1 class="p1">Liste of Projects</h1>
+  <mat-card class="center"><h1 class="p1">List of Projects</h1>
     <div class="center1">
         <app-search (searchTextChange)="onSearchTextEntered($event)"></app-search>
       </div>
@@ -21,10 +21,21 @@
         <div class="font-bold text-xl mb-2">Description : {{row.description}}</div>
         <div class="font-bold text-xl mb-2">Start Date : {{row.startdate | date}}</div>
         <div class="font-bold text-xl mb-2">End Date : {{row.enddate | date}}</div>
+        <div class="font-bold text-xl mb-2">Contributers : {{row.contributers}}</div>
+        <div class="font-bold text-xl mb-2">Rating : {{row.rating}}</div>
+      
+      
         <button (click)="editArtical(row)" type="button" class="text-black bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
         >
         <mat-icon>edit</mat-icon> </button>
         <button type="button" (click)="deleteProject(row)" class="text-black bg-gradient-to-r from-red-500 via-red-600 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">   <mat-icon>delete</mat-icon></button>
+        <button (click)="Contribute(row)" type="button" class="text-black bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+        <mat-icon>library_add</mat-icon> </button>
+        <button (click)="rating(row)" type="button" class="text-black bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >
+        <mat-icon>star</mat-icon> </button>
+        
        </div>
        <div class="px-6 pt-4 pb-2">
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Author</span>

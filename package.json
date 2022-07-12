@@ -32,8 +32,11 @@
     "@syncfusion/ej2-angular-splitbuttons": "^20.2.36",
     "angular-calendar": "^0.29.0",
     "angularfire2": "^5.4.2",
+    "chart.js": "^3.8.0",
     "date-fns": "^2.28.0",
     "firebase": "^7.24.0",
+    "ng2-charts": "^3.1.2",
+    "ngx-star-rating": "^2.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

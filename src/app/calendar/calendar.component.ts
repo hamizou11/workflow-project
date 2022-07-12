@@ -16,7 +16,7 @@ export class CalendarComponent {
 
   project: ProjectModel = new ProjectModel();
   public srtView :View='Month';
-  public setDate :Date =new Date(2018, 1, 15);
+  public setDate :Date =new Date();
   private eventObject : EventSettingsModel = {  
     dataSource :[{ 
       subject : this.project.title, 

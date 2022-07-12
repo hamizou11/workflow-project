@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ContributeComponent } from '../contribute/contribute.component';
 import { EditProjectComponent } from '../edit-project/edit-project.component';
 import { ProjectModel } from '../project.module';
+import { RatingComponent } from '../rating/rating.component';
 import { ApiService } from '../shared/api.service';
 
 @Component({
@@ -13,6 +16,7 @@ import { ApiService } from '../shared/api.service';
 export class ListProjectComponent implements OnInit {
 
   projectdata !: any;
+  formValue !: FormGroup;
   project: ProjectModel = new ProjectModel();
   constructor(  private api :ApiService,private route :ActivatedRoute ,private router: Router,private dialog : MatDialog) { }
   ngOnInit(): void {
@@ -22,6 +26,7 @@ export class ListProjectComponent implements OnInit {
 
     this.api.get().subscribe(res=>{
       this.projectdata =res;
+   
    })
   }
 
@@ -52,4 +57,27 @@ export class ListProjectComponent implements OnInit {
        })
         
        }
+       Contribute(row :any){
+        this.dialog.open(ContributeComponent, {
+          
+         width :'50%',
+         data :row
+       }).afterClosed().subscribe(val=>{ 
+        if(val === 'Updated') { this.getAllProject();}
+       
+       })
+       
+        
+       }
+       rating(row :any){
+        this.dialog.open(RatingComponent, {
+          
+         width :'50%',
+         data :row
+       }).afterClosed().subscribe(val=>{ 
+        if(val === 'Updated') { this.getAllProject();}
+       
+       })
+      
+}
 }

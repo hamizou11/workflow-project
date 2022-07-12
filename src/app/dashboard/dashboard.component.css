@@ -1,0 +1,21 @@
+.h1 {width: 400px;
+    
+    position: absolute;
+    left: 250px;
+    top: 100px;
+    text-align: center;}
+
+    .h2 {width: 400px;
+    
+        position: absolute;
+        left: 750px;
+        top: 200px;
+        text-align: center;}
+        
+        
+    .h3 {width: 400px;
+    
+            position: absolute;
+            left: 500px;
+            top: 600px;
+            text-align: center;}
