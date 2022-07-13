@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit,ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,6 +7,9 @@ import { EditProjectComponent } from '../edit-project/edit-project.component';
 import { ProjectModel } from '../project.module';
 import { RatingComponent } from '../rating/rating.component';
 import { ApiService } from '../shared/api.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-list-project',
@@ -15,6 +18,12 @@ import { ApiService } from '../shared/api.service';
 })
 export class ListProjectComponent implements OnInit {
 
+
+  displayedColumns: string[] = ['title', 'author', 'description', 'startdate','enddate','contributers','rating','edit','delete','contribute','rate'];
+  dataSource!: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   projectdata !: any;
   formValue !: FormGroup;
   project: ProjectModel = new ProjectModel();
@@ -24,8 +33,13 @@ export class ListProjectComponent implements OnInit {
   }
   getAllProject(){
 
-    this.api.get().subscribe(res=>{
-      this.projectdata =res;
+    this.api.get().subscribe({
+    next:(res)=>{ 
+      this.dataSource= new MatTableDataSource(res);
+      this.dataSource.paginator =this.paginator;
+      this.dataSource.sort= this.sort;
+
+    }
    
    })
   }
@@ -80,4 +94,13 @@ export class ListProjectComponent implements OnInit {
        })
       
 }
+applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
+
 }

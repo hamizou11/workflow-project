@@ -36,6 +36,9 @@ import { ContributeComponent } from './contribute/contribute.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { RatingComponent } from './rating/rating.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -80,7 +83,10 @@ import { RatingComponent } from './rating/rating.component';
     }),
     ScheduleModule,
     NgChartsModule,
-    NgxStarRatingModule
+    NgxStarRatingModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
     
     
     

@@ -26,3 +26,7 @@
     display: flex;
     justify-content: flex-end;
   }
+  .card {
+   width: 500px;
+   top: 0px;
+  }

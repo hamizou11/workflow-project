@@ -1,54 +1,92 @@
 
+<h1 class="h1">List of Projects</h1>
 
-
-  <mat-card class="center"><h1 class="p1">List of Projects</h1>
-    <div class="center1">
-        <app-search (searchTextChange)="onSearchTextEntered($event)"></app-search>
-      </div>
-    <ng-container *ngFor="let row of projectdata"> 
-
-    <div class="row">
-        <div class="column">
-          <div class="card">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      
-        <div class="container" *ngIf="searchText === '' || row.title.toLowerCase().includes(searchText) || row.author.toLowerCase().includes(searchText) || row.startdate.toLowerCase().includes(searchText) || row.description.toLowerCase().includes(searchText) || row.enddate.toLowerCase().includes(searchText) ">
+<div class="container">
+  <div style=" margin-top:10px; ">
+  
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+    
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
+          <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+        </ng-container>
+    
+        <!-- author Column -->
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> author </th>
+          <td mat-cell *matCellDef="let row"> {{row.author}}</td>
+        </ng-container>
+    
+        <!-- description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
         
-      <div class="px-6 py-4">
+    
+        <!-- startdate Column -->
+        <ng-container matColumnDef="startdate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> startdate </th>
+          <td mat-cell *matCellDef="let row"> {{row.startdate | date}} </td>
+        </ng-container>
+
+      
+        <ng-container matColumnDef="enddate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> enddate </th>
+          <td mat-cell *matCellDef="let row"> {{row.enddate | date}} </td>
+        </ng-container>
        
-        <div class="font-bold text-xl mb-2">Title : {{row.title}}</div>
-        <div class="font-bold text-xl mb-2">Author : {{row.author}}</div>
-        <div class="font-bold text-xl mb-2">Description : {{row.description}}</div>
-        <div class="font-bold text-xl mb-2">Start Date : {{row.startdate | date}}</div>
-        <div class="font-bold text-xl mb-2">End Date : {{row.enddate | date}}</div>
-        <div class="font-bold text-xl mb-2">Contributers : {{row.contributers}}</div>
-        <div class="font-bold text-xl mb-2">Rating : {{row.rating}}</div>
-      
-      
-        <button (click)="editArtical(row)" type="button" class="text-black bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-        <mat-icon>edit</mat-icon> </button>
-        <button type="button" (click)="deleteProject(row)" class="text-black bg-gradient-to-r from-red-500 via-red-600 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">   <mat-icon>delete</mat-icon></button>
-        <button (click)="Contribute(row)" type="button" class="text-black bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-        <mat-icon>library_add</mat-icon> </button>
-        <button (click)="rating(row)" type="button" class="text-black bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        <ng-container matColumnDef="contributers">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> contributers </th>
+          <td mat-cell *matCellDef="let row"> {{row.contributers}} </td>
+        </ng-container>
+        <ng-container matColumnDef="rating">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> rating </th>
+          <td mat-cell *matCellDef="let row"> {{row.rating}} </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+          <td mat-cell *matCellDef="let row"><button (click)="editArtical(row)" type="button" class="text-black bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            >
+            <mat-icon>edit</mat-icon> </button> </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> delete </th>
+          <td mat-cell *matCellDef="let row"> <button type="button" (click)="deleteProject(row)" class="text-black bg-gradient-to-r from-red-500 via-red-600 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">   <mat-icon>delete</mat-icon></button></td>
+        </ng-container>
+        <ng-container matColumnDef="contribute">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> contribute </th>
+          <td mat-cell *matCellDef="let row">
+            <button (click)="Contribute(row)" type="button" class="text-black bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+              <mat-icon>library_add</mat-icon> </button> </td>
+        </ng-container>
+        <ng-container matColumnDef="rate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> rate </th>
+          <td mat-cell *matCellDef="let row">
+            <button (click)="rating(row)" type="button" class="text-black bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
         >
         <mat-icon>star</mat-icon> </button>
+            </td>
+        </ng-container>
         
-       </div>
-       <div class="px-6 pt-4 pb-2">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Author</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Project</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Contribution</span>
-      </div>
-      </div>
-  
-      
-     </div>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </div>
-  </div>
-  </div>
-    </ng-container>
-</mat-card>
-  
+    </div>
+</div>

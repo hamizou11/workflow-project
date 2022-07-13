@@ -12,7 +12,10 @@
     margin: auto;
     width: 50%;
     border: 3px solid black;
+    position: absolute;
+    top: 95px;
     padding: 10px;
+    left: 330px;
   }
   .p1 {
     font-family: Arial, sans-serif;
