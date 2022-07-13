@@ -28,7 +28,9 @@ export class EditProjectComponent implements OnInit {
       author :['',Validators.required],
       description :['',Validators.required],
       startdate :['',Validators.required],
-      enddate :['',Validators.required]
+      enddate :['',Validators.required],
+      contributers :['',Validators.required],
+      rating: ['', Validators.required]
     
     
     
@@ -40,6 +42,8 @@ export class EditProjectComponent implements OnInit {
       this.formValue.controls['description'].setValue(this.editData.description);
       this.formValue.controls['startdate'].setValue(this.editData.startdate);
       this.formValue.controls['enddate'].setValue(this.editData.enddate);
+      this.formValue.controls['contributers'].setValue(this.editData.contributers);
+      this.formValue.controls['rating'].setValue(this.editData.rating);
     }
     
     
