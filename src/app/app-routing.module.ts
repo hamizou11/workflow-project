@@ -12,10 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [{ path:'login',component:LoginFormComponent},
 { path:'signup',component:SignupComponent}  ,
 { path:'dashboard',component:DashboardComponent},
-{ path:'addproject',component:AddProjectComponent,canActivate :[AuthGuard]},
+{ path:'addproject',component:AddProjectComponent},
 { path:'listproject',component:ListProjectComponent},
-{ path:'calendar',component:CalendarComponent},
-{ path:'',redirectTo:'signup',pathMatch:'full'} ]; 
+{ path:'calendar',component:CalendarComponent} ]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

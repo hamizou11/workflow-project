@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ProjectModel } from '../project.module';
 import { ApiService } from '../shared/api.service';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-add-project',
@@ -13,7 +15,7 @@ export class AddProjectComponent implements OnInit {
   formValue !: FormGroup;
   project: ProjectModel = new ProjectModel ();
 
-  constructor( private formBuilder : FormBuilder ,private api :ApiService) { }
+  constructor( private formBuilder : FormBuilder ,private api :ApiService,private authService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -24,6 +26,7 @@ export class AddProjectComponent implements OnInit {
       enddate :['',Validators.required]
     
   })
+  this.authService.autoLogin();
 }
 onSubmit (){
   if(this.formValue.valid){
@@ -34,6 +37,7 @@ onSubmit (){
   this.project.enddate = this.formValue.value.enddate;
   this.api.post(this.project).subscribe(res=> {console.log(res); alert("Project added")});
   this.formValue.reset();
+  
  
   
   } 

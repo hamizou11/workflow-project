@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { BehaviorSubject,throwError }  from 'rxjs';
+import { BehaviorSubject,Subject,throwError }  from 'rxjs';
 import { User } from './user.model';
 import { registerLocaleData } from '@angular/common';
 import { Router } from '@angular/router';
@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
   })
 
   export class AuthService {
-  
+
     user =new BehaviorSubject<User|null>(null);
     
 
@@ -72,7 +72,17 @@ import { Router } from '@angular/router';
       }
 
      
-      
+      autoLogin() { 
+        const userData :{email :string ,id :string,_token : string, _tokenExpirationDate : string } =JSON.parse(localStorage.getItem('userData')!);
+        if(!userData) { return;}
+        const loadedUser = new User(userData.email,userData.id,userData._token,new Date(userData._tokenExpirationDate));
+        if(loadedUser.token) {
+          this.user.next(loadedUser);
+        }
+
+
+      }
+
 
     private handleError(errorRes :HttpErrorResponse){
       
