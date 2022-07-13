@@ -23,9 +23,6 @@ constructor(private api :ApiService) {
   }
   ngOnInit() {
     
-   
-   
-   ;
       this.api.get().subscribe(res => {
         this.result =res;
 

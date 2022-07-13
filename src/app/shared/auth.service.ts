@@ -27,7 +27,7 @@ import { Router } from '@angular/router';
   export class AuthService {
   
     user =new BehaviorSubject<User|null>(null);
-
+    
 
     constructor(private http:HttpClient,private router :Router){}
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { exhaustMap, map, take } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { ProjectModel } from '../project.module';
 
@@ -20,10 +20,12 @@ export class ApiService {
     
   }
   get(){
-  
-    return this.http.get<any>("http://localhost:3000/projects").pipe(map((res:any)=>{ 
-      return res ;
-    }))
+   return  this.authService.user.pipe(take(1),exhaustMap(user =>{  return this.http.get<any>("http://localhost:3000/projects") 
+  }),  map((res:any)=>{ 
+    return res ;
+   })
+    );
+   
     
   }
   put(data :any ,id:number){

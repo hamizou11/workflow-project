@@ -1,13 +1,13 @@
 {
   "projects": [
     {
-      "title": "aaaa",
+      "title": "aaasssss",
       "author": "aaaaaa",
       "description": "aaaaaa",
       "startdate": "2022-07-25T22:00:00.000Z",
       "enddate": "2022-07-29T22:00:00.000Z",
-      "contributers": 1,
-      "rating": 4,
+      "contributers": 2,
+      "rating": 3,
       "id": 1
     },
     {
@@ -19,6 +19,16 @@
       "contributers": 3,
       "rating": 3,
       "id": 2
+    },
+    {
+      "title": "project",
+      "author": "hamza",
+      "description": "new project",
+      "startdate": "2022-07-25T22:00:00.000Z",
+      "enddate": "2022-07-29T22:00:00.000Z",
+      "contributers": 1,
+      "rating": 3,
+      "id": 3
     }
   ],
   "comments": [
