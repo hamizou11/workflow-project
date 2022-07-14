@@ -31,4 +31,7 @@
   .h1{
     font-family: Arial, sans-serif;
     text-align: center;
+    font-size: 40px;
+    top: 50px;
+    position: relative;
    }

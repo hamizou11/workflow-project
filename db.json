@@ -1,33 +1,13 @@
 {
   "projects": [
     {
-      "title": "hamzaq",
-      "author": "nnnnTT",
-      "description": "this a second project",
-      "startdate": "2022-07-16T22:00:00.000Z",
-      "enddate": "2022-07-23T22:00:00.000Z",
-      "contributers": 1,
-      "rating": 3,
-      "id": 2
-    },
-    {
-      "title": "project",
+      "title": "hamzauno",
       "author": "hamza",
-      "description": "new project",
-      "startdate": "2022-07-25T22:00:00.000Z",
-      "enddate": "2022-07-29T22:00:00.000Z",
-      "contributers": 1,
-      "rating": 3,
-      "id": 3
-    },
-    {
-      "title": "hamza",
-      "author": "hamza",
-      "description": "hamza",
+      "description": "a new project coming soon",
       "startdate": "2022-07-23T22:00:00.000Z",
       "enddate": "2022-07-20T22:00:00.000Z",
       "contributers": 1,
-      "rating": 0,
+      "rating": 3,
       "id": 4
     },
     {
@@ -46,9 +26,19 @@
       "description": "wwwwww",
       "startdate": "2022-07-24T22:00:00.000Z",
       "enddate": "2022-07-29T22:00:00.000Z",
-      "contributers": 0,
+      "contributers": 1,
       "rating": 2,
       "id": 6
+    },
+    {
+      "title": "database",
+      "author": "hamza Marouani",
+      "description": "this a project that help user to fetch data from database",
+      "startdate": "2022-07-16T22:00:00.000Z",
+      "enddate": "2022-07-25T22:00:00.000Z",
+      "contributers": 0,
+      "rating": 0,
+      "id": 7
     }
   ],
   "comments": [

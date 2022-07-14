@@ -20,4 +20,7 @@
   .p1 {
     font-family: Arial, sans-serif;
     text-align: center;
+    font-size: 40px;
+    top: 7px;
+    position: relative;
   }

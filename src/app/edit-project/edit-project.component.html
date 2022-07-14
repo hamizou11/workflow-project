@@ -1,5 +1,5 @@
 <mat-card class="center"><h1 class="p1">Edit Your Project</h1>
-    <form class="example-form" [formGroup]=  "formValue">
+    <form class="example-form" [formGroup]=  "formValue" (ngSubmit)="UpdateProject()">
     <mat-form-field class="example-full-width " appearance="outline">
       
         <mat-label>Title</mat-label>
@@ -32,7 +32,7 @@
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field><br>
       <div mat-dialog-actions>
-        <button mat-raised-button color="primary" (click)="addProject()">{{actionBtn}}
+        <button mat-raised-button color="primary">Edit
             <mat-icon>edit</mat-icon> </button>
        
       </div>

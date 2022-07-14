@@ -1,8 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProjectModel } from '../project.module';
 import { ApiService } from '../shared/api.service';
+import { ActivatedRoute,Router } from '@angular/router';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 @Component({
   selector: 'app-edit-project',
@@ -14,37 +16,33 @@ export class EditProjectComponent implements OnInit {
   formValue !: FormGroup;
   actionBtn :string ="Edit";
   projectdata !: any;
+  
    
-  constructor(private dialog : MatDialog,private api :ApiService,private formbuilder:FormBuilder,
-   private dialogRef :MatDialogRef<EditProjectComponent>
-       ,@Inject (MAT_DIALOG_DATA) public editData :any ) { }
+  constructor(private dialog : MatDialog,private api :ApiService,private formbuilder:FormBuilder,private router:ActivatedRoute,private _router :Router) { }
 
 
   ngOnInit(): void {
      
-
     this.formValue = this.formbuilder.group({
       title :['',Validators.required],
       author :['',Validators.required],
       description :['',Validators.required],
       startdate :['',Validators.required],
-      enddate :['',Validators.required],
-      contributers :['',Validators.required],
-      rating: ['', Validators.required]
-    
-    
-    
+      enddate :['',Validators.required]
+     })
+   this.api.getCurrentData(this.router.snapshot.params['id']).subscribe((res)=>{ 
+    this.formValue =new FormGroup({ 
+      title:new FormControl(res['title']),
+      author:new FormControl(res['author']),
+      description:new FormControl(res['description']),
+      startdate:new FormControl(res['startdate']),
+      enddate:new FormControl(res['enddate']),
+      contributers:new FormControl(res['contributers']),
+      rating:new FormControl(res['rating'])
     })
-    if(this.editData)  {
-      this.actionBtn="Update";
-      this.formValue.controls['title'].setValue(this.editData.title);
-      this.formValue.controls['author'].setValue(this.editData.author);
-      this.formValue.controls['description'].setValue(this.editData.description);
-      this.formValue.controls['startdate'].setValue(this.editData.startdate);
-      this.formValue.controls['enddate'].setValue(this.editData.enddate);
-      this.formValue.controls['contributers'].setValue(this.editData.contributers);
-      this.formValue.controls['rating'].setValue(this.editData.rating);
-    }
+   })
+    
+   
     
     
   }
@@ -55,25 +53,15 @@ export class EditProjectComponent implements OnInit {
       this.projectdata =res;
    })
   }
+  UpdateProject(){
+    
+    this.api.put(this.formValue.value,this.router.snapshot.params['id']).subscribe({
+      next:(res)=>{alert("Project updated");
+      this._router.navigate(['listproject']);
+      this.formValue.reset();}}
+    )
+    
+   }
 
-  openDialog() {
-    this.dialog.open(EditProjectComponent, {
-     
-      width :'30%'
-    })
-  }
-  addProject(){ 
-    if(!this.editData){if(this.formValue.valid){ } 
-  }else{this.updateProject() }
-  
-  }
-
-  updateProject(){
-    this.api.put(this.formValue.value,this.editData.id)
-    .subscribe({
-      next:(res)=>{alert("Artical updated");
-      this.formValue.reset();
-      this.dialogRef.close('Updated');
-    } })
-  }
+ 
 }

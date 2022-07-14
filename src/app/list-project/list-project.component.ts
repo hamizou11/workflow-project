@@ -60,17 +60,7 @@ export class ListProjectComponent implements OnInit {
       
       }
 
-      editArtical(row :any){
-        this.dialog.open(EditProjectComponent, {
-          
-         width :'50%',
-         data :row
-       }).afterClosed().subscribe(val=>{ 
-        if(val === 'Updated') { this.getAllProject();}
-       
-       })
-        
-       }
+  
        Contribute(row :any){
         this.dialog.open(ContributeComponent, {
           
