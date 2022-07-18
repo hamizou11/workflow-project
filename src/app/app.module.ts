@@ -39,7 +39,18 @@ import { RatingComponent } from './rating/rating.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { DayPilotModule } from "daypilot-pro-angular";
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+
+]);
 
 @NgModule({
   declarations: [
@@ -86,7 +97,10 @@ import { MatSortModule } from '@angular/material/sort';
     NgxStarRatingModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    DayPilotModule,
+    FullCalendarModule
+    
     
     
     
@@ -97,6 +111,7 @@ import { MatSortModule } from '@angular/material/sort';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

@@ -16,7 +16,8 @@ const routes: Routes = [{ path:'login',component:LoginFormComponent},
 { path:'addproject',component:AddProjectComponent},
 { path:'listproject',component:ListProjectComponent},
 { path:'calendar',component:CalendarComponent},
-{ path:'edit/:id',component:EditProjectComponent}]; 
+{ path:'edit/:id',component:EditProjectComponent},
+{ path:'',component:SignupComponent}]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

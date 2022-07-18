@@ -40,8 +40,8 @@ export class ContributeComponent implements OnInit {
       this.formValue.controls['title'].setValue(this.editData.title);
       this.formValue.controls['author'].setValue(this.editData.author);
       this.formValue.controls['description'].setValue(this.editData.description);
-      this.formValue.controls['startdate'].setValue(this.editData.startdate);
-      this.formValue.controls['enddate'].setValue(this.editData.enddate);
+      this.formValue.controls['startdate'].setValue(this.editData.startdate); 
+       this.formValue.controls['enddate'].setValue(this.editData.enddate);
       this.formValue.controls['contributers'].setValue(this.editData.contributers);
       this.formValue.controls['rating'].setValue(this.editData.rating);
     

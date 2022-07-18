@@ -2,12 +2,12 @@
   "projects": [
     {
       "title": "hamzauno",
-      "author": "hamza",
+      "author": "hamzaaa",
       "description": "a new project coming soon",
       "startdate": "2022-07-23T22:00:00.000Z",
       "enddate": "2022-07-20T22:00:00.000Z",
-      "contributers": 1,
-      "rating": 3,
+      "contributers": 4,
+      "rating": 4,
       "id": 4
     },
     {
@@ -39,6 +39,26 @@
       "contributers": 0,
       "rating": 0,
       "id": 7
+    },
+    {
+      "title": "aa",
+      "author": "aaaaaa",
+      "description": "aaaa",
+      "startdate": "2022-07-23T22:00:00.000Z",
+      "enddate": "2022-07-29T22:00:00.000Z",
+      "contributers": 0,
+      "rating": 4,
+      "id": 8
+    },
+    {
+      "title": "sd",
+      "author": "dddddd",
+      "description": "ddddd",
+      "startdate": "2022-07-24T22:00:00.000Z",
+      "enddate": "2022-07-28T22:00:00.000Z",
+      "contributers": 0,
+      "rating": 2,
+      "id": 9
     }
   ],
   "comments": [
