@@ -27,16 +27,16 @@ export class EditProjectComponent implements OnInit {
       title :['',Validators.required],
       author :['',Validators.required],
       description :['',Validators.required],
-      startdate :['',Validators.required],
-      enddate :['',Validators.required]
+      start :['',Validators.required],
+      end :['',Validators.required]
      })
    this.api.getCurrentData(this.router.snapshot.params['id']).subscribe((res)=>{ 
     this.formValue =new FormGroup({ 
       title:new FormControl(res['title']),
       author:new FormControl(res['author']),
       description:new FormControl(res['description']),
-      startdate:new FormControl(res['startdate']),
-      enddate:new FormControl(res['enddate']),
+      start:new FormControl(res['start']),
+      end:new FormControl(res['end']),
       contributers:new FormControl(res['contributers']),
       rating:new FormControl(res['rating'])
     })
@@ -53,10 +53,10 @@ export class EditProjectComponent implements OnInit {
       this.projectdata =res;
    })
   }
-  UpdateProject(){
+  updateProject(){
     
-    this.api.put(this.formValue.value,this.router.snapshot.params['id']).subscribe({
-      next:(res)=>{alert("Project updated");
+    this.api.put(this.formValue.value,this.router.snapshot.params['id']).subscribe((projects:ProjectModel[])=>{
+      {alert("Project updated");
       this._router.navigate(['listproject']);
       this.formValue.reset();}}
     )

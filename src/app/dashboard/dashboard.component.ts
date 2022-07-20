@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 result :any;
 title :any;
 rating:any;
-startdate:any;
+start:any;
 contributers :any;
 chart :any = [];
 
@@ -28,7 +28,7 @@ constructor(private api :ApiService) {
 
         this.title = this.result.map((m:any)=>m.title);
         this.contributers = this.result.map((m:any)=>m.contributers);
-        this.startdate = this.result.map((m:any)=>m.startdate);
+        this.start = this.result.map((m:any)=>m.start);
         this.rating = this.result.map((m:any)=>m.rating);
         console.log(this.rating);
         
