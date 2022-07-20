@@ -1,81 +1,52 @@
 {
   "projects": [
     {
-      "title": "hamzauno",
-      "author": "hamzaaa",
-      "description": "a new project coming soon",
-      "startdate": "2022-07-23T22:00:00.000Z",
-      "enddate": "2022-07-20T22:00:00.000Z",
-      "contributers": 4,
-      "rating": 4,
-      "id": 4
-    },
-    {
-      "title": "sadfghn",
-      "author": "dfghn",
-      "description": "dfghj",
-      "startdate": "2022-07-23T22:00:00.000Z",
-      "enddate": "2022-07-22T22:00:00.000Z",
+      "title": "aaaa",
+      "author": "aaaaaa",
+      "description": "aaaaa",
+      "start": "2022-07-10T22:00:00.000Z",
+      "end": "2022-07-19T22:00:00.000Z",
       "contributers": 2,
       "rating": 3,
-      "id": 5
+      "id": 1
     },
     {
-      "title": "wwww",
-      "author": "wwwww",
-      "description": "wwwwww",
-      "startdate": "2022-07-24T22:00:00.000Z",
-      "enddate": "2022-07-29T22:00:00.000Z",
-      "contributers": 1,
-      "rating": 2,
-      "id": 6
-    },
-    {
-      "title": "database",
-      "author": "hamza Marouani",
-      "description": "this a project that help user to fetch data from database",
-      "startdate": "2022-07-16T22:00:00.000Z",
-      "enddate": "2022-07-25T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 0,
-      "id": 7
-    },
-    {
-      "title": "aa",
-      "author": "aaaaaa",
-      "description": "aaaa",
-      "startdate": "2022-07-23T22:00:00.000Z",
-      "enddate": "2022-07-29T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 4,
-      "id": 8
-    },
-    {
-      "title": "sd",
-      "author": "dddddd",
-      "description": "ddddd",
-      "startdate": "2022-07-24T22:00:00.000Z",
-      "enddate": "2022-07-28T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 2,
-      "id": 9
-    },
-    {
-      "title": "hmaza",
+      "id": 2,
+      "title": "vvv",
       "author": "hamza",
-      "description": "hamza",
-      "startdate": "2022-07-16T22:00:00.000Z",
-      "enddate": "2022-07-27T22:00:00.000Z",
+      "description": "eeeeee",
+      "start": "2022-07-24T22:00:00.000Z",
+      "end": "2022-07-27T22:00:00.000Z",
       "contributers": 0,
-      "rating": 3,
-      "id": 10
+      "rating": 0
+    },
+    {
+      "id": 3,
+      "title": "h.marouani",
+      "author": "hamzaa",
+      "description": "aaaaaa",
+      "start": "2022-07-17T22:00:00.000Z",
+      "end": "2022-07-28T22:00:00.000Z",
+      "contributers": 0,
+      "rating": 0
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "hamza",
+      "start": "2022-07-13T22:00:00.000Z",
+      "end": "2022-07-15T22:00:00.000Z",
+      "contributers": 1,
+      "rating": 2
+    },
+    {
+      "id": 2,
+      "title": "hamzaa",
+      "start": "2022-07-17T22:00:00.000Z",
+      "end": "2022-07-20T22:00:00.000Z",
+      "contributers": 1,
+      "rating": 2
     }
   ],
   "profile": {

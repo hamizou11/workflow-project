@@ -20,14 +20,14 @@
       </mat-form-field>
       <mat-form-field class="example-full-width " appearance="fill">
         <mat-label>Start Date</mat-label>
-        <input formControlName="startdate" matInput [matDatepicker]="picker" readonly>
+        <input formControlName="start" matInput [matDatepicker]="picker" readonly>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field><br>
       <mat-form-field class="example-full-width " appearance="fill">
         <mat-label>End Date</mat-label>
-        <input formControlName="enddate" matInput [matDatepicker]="picker2" readonly>
+        <input formControlName="end" matInput [matDatepicker]="picker2" readonly>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>

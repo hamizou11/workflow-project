@@ -33,18 +33,18 @@ export class ListProjectComponent implements OnInit {
   }
   getAllProject(){
 
-    this.api.get().subscribe({
-    next:(res)=>{ 
-      this.dataSource= new MatTableDataSource(res);
+    this.api.get().subscribe((projects:ProjectModel[])=>{
+     
+      this.dataSource= new MatTableDataSource(projects);
       this.dataSource.paginator =this.paginator;
       this.dataSource.sort= this.sort;
 
-    }
+    
    
    })
   }
 
-   deleteProject(row :any){
+   deleteProject(row :ProjectModel){
     this.api.delete(row.id).subscribe(res=>{
       alert("Article Deleted");
       this.getAllProject();
@@ -53,19 +53,18 @@ export class ListProjectComponent implements OnInit {
      
       }
 
-      searchText :string='';
-      onSearchTextEntered(searchValue:string){
+        searchText :string='';
+        onSearchTextEntered(searchValue:string){
         this.searchText= searchValue;
         console.log(this.searchText);
       
       }
 
   
-       Contribute(row :any){
+       contribute(element :ProjectModel){
         this.dialog.open(ContributeComponent, {
-          
          width :'50%',
-         data :row
+         data :element
        }).afterClosed().subscribe(val=>{ 
         if(val === 'Updated') { this.getAllProject();}
        
@@ -73,7 +72,7 @@ export class ListProjectComponent implements OnInit {
        
         
        }
-       rating(row :any){
+       rating(row :ProjectModel){
         this.dialog.open(RatingComponent, {
           
          width :'50%',

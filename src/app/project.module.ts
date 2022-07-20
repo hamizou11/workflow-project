@@ -6,8 +6,8 @@ export class ProjectModel{
     title : string ='';
     author :string ='';
     description :string ='';
-    startdate :Date=new Date();
-    enddate :Date=new Date();
+    start :Date=new Date();
+    end :Date=new Date();
     contributers : number = 0;
     rating : number = 0;
   

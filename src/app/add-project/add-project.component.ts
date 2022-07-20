@@ -22,8 +22,8 @@ export class AddProjectComponent implements OnInit {
       title :['',Validators.required],
       author :['',Validators.required],
       description :['',Validators.required],
-      startdate :['',Validators.required],
-      enddate :['',Validators.required]
+      start :['',Validators.required],
+      end :['',Validators.required]
     
   })
   this.authService.autoLogin();
@@ -33,8 +33,8 @@ onSubmit (){
   this.project.title = this.formValue.value.title;
   this.project.author = this.formValue.value.author;
   this.project.description = this.formValue.value.description;
-  this.project.startdate = this.formValue.value.startdate;
-  this.project.enddate = this.formValue.value.enddate;
+  this.project.start = this.formValue.value.start;
+  this.project.end = this.formValue.value.end;
   this.api.post(this.project).subscribe(res=> {console.log(res); alert("Project added")});
   this.formValue.reset();
   
