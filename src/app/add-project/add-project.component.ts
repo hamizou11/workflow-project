@@ -38,6 +38,7 @@ onSubmit (){
   this.api.post(this.project).subscribe(res=> {console.log(res); alert("Project added")});
   this.formValue.reset();
   
+  
  
   
   } 
