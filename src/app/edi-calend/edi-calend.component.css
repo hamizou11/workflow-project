@@ -1,11 +1,22 @@
-.center {
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+   
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .center {
     margin: auto;
-    width: 80%;
+    width: 50%;
     border: 3px solid black;
     position: absolute;
     top: 95px;
     padding: 10px;
-    left: 150px;
+    left: 330px;
+    
   }
   .p1 {
     font-family: Arial, sans-serif;

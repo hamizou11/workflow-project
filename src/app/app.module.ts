@@ -43,6 +43,7 @@ import { DayPilotModule } from "daypilot-pro-angular";
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { EdiCalendComponent } from './edi-calend/edi-calend.component';
 
 
 
@@ -67,7 +68,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     LoadingSpinnerComponent,
     CalendarComponent,
     ContributeComponent,
-    RatingComponent
+    RatingComponent,
+    EdiCalendComponent
   
    
  
