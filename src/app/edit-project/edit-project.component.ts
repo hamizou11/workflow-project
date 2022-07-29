@@ -5,6 +5,7 @@ import { ProjectModel } from '../project.module';
 import { ApiService } from '../shared/api.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import { resetFakeAsyncZone } from '@angular/core/testing';
+import ClassicEditor  from '@ckeditor/ckeditor5-build-classic'
 
 @Component({
   selector: 'app-edit-project',
@@ -15,10 +16,10 @@ export class EditProjectComponent implements OnInit {
 
   formValue !: FormGroup;
   actionBtn :string ="Edit";
-  projectdata !: any;
+  projectdata !: ProjectModel;
+  public Editor = ClassicEditor;
   
-   
-  constructor(private dialog : MatDialog,private api :ApiService,private formbuilder:FormBuilder,private router:ActivatedRoute,private _router :Router) { }
+ constructor(private dialog : MatDialog,private api :ApiService,private formbuilder:FormBuilder,private router:ActivatedRoute,private _router :Router) { }
 
 
   ngOnInit(): void {
@@ -28,18 +29,13 @@ export class EditProjectComponent implements OnInit {
       author :['',Validators.required],
       description :['',Validators.required],
       start :['',Validators.required],
-      end :['',Validators.required]
+      end :['',Validators.required],
+      contributers :['',Validators.required],
+      rating :['',Validators.required]
+    
      })
    this.api.getCurrentData(this.router.snapshot.params['id']).subscribe((res)=>{ 
-    this.formValue =new FormGroup({ 
-      title:new FormControl(res['title']),
-      author:new FormControl(res['author']),
-      description:new FormControl(res['description']),
-      start:new FormControl(res['start']),
-      end:new FormControl(res['end']),
-      contributers:new FormControl(res['contributers']),
-      rating:new FormControl(res['rating'])
-    })
+    this.formValue.patchValue(res);
    })
     
    
@@ -62,6 +58,7 @@ export class EditProjectComponent implements OnInit {
     )
     
    }
+  
 
  
 }

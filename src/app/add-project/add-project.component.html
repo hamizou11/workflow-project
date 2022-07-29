@@ -12,11 +12,12 @@
     <mat-label>Author</mat-label>
     <input formControlName="author" matInput>
   </mat-form-field>
-  <mat-form-field class="example-full-width " appearance="outline">
+  
+      <mat-label>Description</mat-label>
+      <ckeditor [editor]="Editor" formControlName="description" matInput></ckeditor>
+   
     
-    <mat-label>Description</mat-label>
-    <textarea formControlName="description" matInput></textarea>
-  </mat-form-field>
+  
   <mat-form-field class="example-full-width " appearance="fill">
     <mat-label>Start Date</mat-label>
     <input formControlName="start" matInput [matDatepicker]="picker">

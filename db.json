@@ -1,62 +1,22 @@
 {
   "projects": [
     {
-      "title": "Hamza",
-      "author": "aaaaaa",
-      "description": "aaaaa",
-      "start": "2022-07-03T22:00:00.000Z",
-      "end": "2022-07-19T22:00:00.000Z",
-      "contributers": 2,
-      "rating": 3,
-      "id": 1
-    },
-    {
-      "title": "this is a new project",
+      "title": "hamza",
       "author": "hamza",
-      "description": "eeeeee",
-      "start": "2022-07-24T22:00:00.000Z",
-      "end": "2022-07-27T22:00:00.000Z",
+      "description": "<p><strong>hhhh</strong></p>",
+      "start": "2022-07-23T22:00:00.000Z",
+      "end": "2022-07-29T22:00:00.000Z",
       "contributers": 2,
-      "rating": 0,
-      "id": 2
+      "rating": 2,
+      "id": 3
     },
     {
-      "id": 3,
-      "title": "h.marouani",
-      "author": "hamzaa",
-      "description": "aaaaaa",
-      "start": "2022-07-17T22:00:00.000Z",
-      "end": "2022-07-28T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 0
-    },
-    {
-      "title": "hamzadue",
-      "author": "hamza",
-      "description": "hhhhh",
-      "start": "2022-07-04T22:00:00.000Z",
-      "end": "2022-07-08T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 0,
-      "id": 4
-    },
-    {
-      "title": "this is a big project ",
-      "author": "again",
-      "description": "yeeah",
-      "start": "2022-06-30T22:00:00.000Z",
-      "end": "2022-07-05T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 0,
-      "id": 6
-    },
-    {
-      "id": 7,
-      "title": "aqqaq",
-      "author": "qaqq",
-      "description": "qqqaq",
-      "start": "2022-07-17T22:00:00.000Z",
-      "end": "2022-07-27T22:00:00.000Z",
+      "id": 4,
+      "title": "",
+      "author": "",
+      "description": "",
+      "start": "2022-07-29T13:50:27.561Z",
+      "end": "2022-07-29T13:50:27.561Z",
       "contributers": 0,
       "rating": 0
     }

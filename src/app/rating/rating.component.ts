@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../shared/api.service';
+import ClassicEditor  from '@ckeditor/ckeditor5-build-classic'
 
 @Component({
   selector: 'app-contribute',
@@ -13,6 +14,7 @@ export class RatingComponent implements OnInit {
   formValue !: FormGroup;
   actionBtn :string ="Edit";
   projectdata !: any;
+  public Editor = ClassicEditor;
    
   constructor(private dialog : MatDialog,private api :ApiService,private formbuilder:FormBuilder,
    private dialogRef :MatDialogRef<RatingComponent>
