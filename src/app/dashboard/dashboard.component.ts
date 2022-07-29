@@ -5,6 +5,9 @@ import { ApiService } from '../shared/api.service';
 
 
 
+
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -17,6 +20,9 @@ rating:any;
 start:any;
 contributers :any;
 chart :any = [];
+
+
+
 
 constructor(private api :ApiService) {
     Chart.register(...registerables);

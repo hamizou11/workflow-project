@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProjectModel } from '../project.module';
 import { ApiService } from '../shared/api.service';
+import ClassicEditor  from '@ckeditor/ckeditor5-build-classic'
 
 @Component({
   selector: 'app-edi-calend',
@@ -14,6 +15,7 @@ export class EdiCalendComponent implements OnInit {
   formValue !: FormGroup;
   actionBtn :string ="Edit";
   projectdata !: any;
+  public Editor = ClassicEditor;
 
   constructor(private dialog : MatDialog,private api :ApiService,private formbuilder:FormBuilder,
     private dialogRef :MatDialogRef<EdiCalendComponent>
@@ -32,13 +34,7 @@ export class EdiCalendComponent implements OnInit {
     console.log( this.editData);
     if(this.editData)  {
       this.actionBtn="Update";
-      this.formValue.controls['title'].setValue(this.editData.title);
-      this.formValue.controls['author'].setValue(this.editData.author);
-      this.formValue.controls['description'].setValue(this.editData.description);
-      this.formValue.controls['start'].setValue(this.editData.start);
-      this.formValue.controls['end'].setValue(this.editData.end);
-      this.formValue.controls['contributers'].setValue(this.editData.contributers);
-      this.formValue.controls['rating'].setValue(this.editData.rating);
+      this.formValue.patchValue(this.editData);
     }
   }
   addProject(){ 
@@ -49,11 +45,13 @@ export class EdiCalendComponent implements OnInit {
 
   updateProject(){
     this.api.put(this.formValue.value,this.editData.id)
-    .subscribe({
-      next:(res)=>{alert("Project updated");
-      this.formValue.reset();
-      this.dialogRef.close('Updated');
-    } })
+    .subscribe((projects:ProjectModel[])=>{
+      
+      {alert("Project updated");
+      this.dialogRef.close('Updated')
+      this.formValue.reset();}}
+    )
   }
+
 
 }

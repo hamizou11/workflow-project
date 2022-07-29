@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ProjectModel } from '../project.module';
 import { ApiService } from '../shared/api.service';
 import { AuthService } from '../shared/auth.service';
+import ClassicEditor  from '@ckeditor/ckeditor5-build-classic'
+import { SimpleUploadAdapter } from '@ckeditor/ckeditor5-upload';
 
 @Component({
   selector: 'app-add-project',
@@ -13,9 +15,12 @@ import { AuthService } from '../shared/auth.service';
 export class AddProjectComponent implements OnInit {
 
   formValue !: FormGroup;
+  public Editor = ClassicEditor;
   project: ProjectModel = new ProjectModel ();
-
-  constructor( private formBuilder : FormBuilder ,private api :ApiService,private authService:AuthService,private router:Router) { }
+  constructor( private formBuilder : FormBuilder ,
+    private api :ApiService,
+    private authService:AuthService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -35,12 +40,15 @@ onSubmit (){
   this.project.description = this.formValue.value.description;
   this.project.start = this.formValue.value.start;
   this.project.end = this.formValue.value.end;
-  this.api.post(this.project).subscribe(res=> {console.log(res); alert("Project added")});
-  this.formValue.reset();
+  this.api.post(this.project).subscribe(res=> {
+     console.log(res);
+     alert("Project added")});
+     this.formValue.reset();
   
   
  
   
   } 
 }
+
 }

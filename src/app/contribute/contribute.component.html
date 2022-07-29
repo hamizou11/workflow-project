@@ -13,11 +13,8 @@
         <mat-label>Author</mat-label>
         <input formControlName="author" matInput readonly>
       </mat-form-field>
-      <mat-form-field class="example-full-width " appearance="outline">
-        
-        <mat-label>Description</mat-label>
-        <textarea formControlName="description" matInput readonly></textarea>
-      </mat-form-field>
+      <mat-label>Description</mat-label>
+      <ckeditor [editor]="Editor" formControlName="description" matInput readonly></ckeditor>
       <mat-form-field class="example-full-width " appearance="fill">
         <mat-label>Start Date</mat-label>
         <input formControlName="start" matInput [matDatepicker]="picker" readonly>
