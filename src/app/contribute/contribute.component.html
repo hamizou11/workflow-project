@@ -13,6 +13,11 @@
         <mat-label>Author</mat-label>
         <input formControlName="author" matInput readonly>
       </mat-form-field>
+      <mat-form-field class="example-full-width " appearance="outline" >
+       
+        <mat-label>Category</mat-label>
+        <input formControlName="category" matInput readonly>
+      </mat-form-field>
       <mat-label>Description</mat-label>
       <ckeditor [editor]="Editor" formControlName="description" matInput readonly></ckeditor>
       <mat-form-field class="example-full-width " appearance="fill">

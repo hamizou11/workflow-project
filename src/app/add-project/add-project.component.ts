@@ -26,6 +26,7 @@ export class AddProjectComponent implements OnInit {
     this.formValue = this.formBuilder.group({
       title :['',Validators.required],
       author :['',Validators.required],
+      category :['',Validators.required],
       description :['',Validators.required],
       start :['',Validators.required],
       end :['',Validators.required]
@@ -37,6 +38,7 @@ onSubmit (){
   if(this.formValue.valid){
   this.project.title = this.formValue.value.title;
   this.project.author = this.formValue.value.author;
+  this.project.category = this.formValue.value.category;
   this.project.description = this.formValue.value.description;
   this.project.start = this.formValue.value.start;
   this.project.end = this.formValue.value.end;

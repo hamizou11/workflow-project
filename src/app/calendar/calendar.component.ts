@@ -7,7 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { EdiCalendComponent } from '../edi-calend/edi-calend.component';
-import { Observable, Subscriber,from } from 'rxjs';
+import { Observable, Subscriber,from, of, fromEvent, filter, map, concatMap, tap } from 'rxjs';
+import { FormBuilder,FormGroup,FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -16,12 +17,19 @@ import { Observable, Subscriber,from } from 'rxjs';
 })
 export class CalendarComponent implements OnInit{
   index:any;
+  formValue !: FormGroup;
   id:any;
   result :any;
   start:any;
-  constructor(private api : ApiService,private router: ActivatedRoute,private dialog : MatDialog) {}
+  private input!:FormControl;
+  project:ProjectModel[]=[];
+  constructor(private api : ApiService,private router: ActivatedRoute,private dialog : MatDialog, private formBuilder : FormBuilder) {}
   calendarOptions!: CalendarOptions;
   ngOnInit() {
+    this.formValue = this.formBuilder.group({
+    input :this.input
+    
+  })
    this.api.get().subscribe((res:ProjectModel[])=>{
      this.result = res;
      // console.log(this.result);
@@ -51,7 +59,10 @@ export class CalendarComponent implements OnInit{
            }
           
     })  
-  
+  /* this.api.get().pipe(map(project=>project.filter((project:any)=>project.title ==='hamza'))).subscribe((item)=>{
+      
+      console.log(item)
+    });*/
     
 }   
 
@@ -60,6 +71,20 @@ add(){
       }).afterClosed().subscribe(val=>{ 
             this.ngOnInit();
        })
+     }
+  search(){
+   // console.log( this.formValue.get('input')?.value);
+    from(this.api.get()).pipe(
+    map(project=>project.
+    filter((project:any)=>project.category ===this.formValue.get('input')?.value))).subscribe((item:ProjectModel[])=>{
+    this.result= item;
+    this.calendarOptions={
+      editable:true,
+      events:this.result,
+      }
+      console.log(item)
+    });
+
      }
    
     }

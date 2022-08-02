@@ -25,6 +25,7 @@ export class EdiCalendComponent implements OnInit {
     this.formValue = this.formbuilder.group({
       title :['',Validators.required],
       author :['',Validators.required],
+      category :['',Validators.required],
       description :['',Validators.required],
       start :['',Validators.required],
       end :['',Validators.required],

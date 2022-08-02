@@ -19,7 +19,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class ListProjectComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['title', 'author', 'description', 'startdate','enddate','contributers','rating','edit','delete','contribute','rate'];
+  displayedColumns: string[] = ['title', 'author','category', 'description', 'startdate','enddate','contributers','rating','edit','delete','contribute','rate'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

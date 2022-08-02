@@ -3,20 +3,22 @@
     {
       "title": "hamza",
       "author": "hamza",
-      "description": "<p><strong>hhhh</strong></p>",
-      "start": "2022-07-23T22:00:00.000Z",
-      "end": "2022-07-29T22:00:00.000Z",
-      "contributers": 2,
-      "rating": 2,
-      "id": 3
+      "category": "web",
+      "description": "<p><strong>this a new project</strong></p>",
+      "start": "2022-08-07T22:00:00.000Z",
+      "end": "2022-08-12T22:00:00.000Z",
+      "contributers": 0,
+      "rating": 3,
+      "id": 1
     },
     {
-      "id": 4,
-      "title": "",
-      "author": "",
-      "description": "",
-      "start": "2022-07-29T13:50:27.561Z",
-      "end": "2022-07-29T13:50:27.561Z",
+      "id": 2,
+      "title": "hamza2",
+      "author": "hamza",
+      "description": "<p>this is another project</p>",
+      "category": "big data",
+      "start": "2022-08-02T22:00:00.000Z",
+      "end": "2022-08-05T22:00:00.000Z",
       "contributers": 0,
       "rating": 0
     }

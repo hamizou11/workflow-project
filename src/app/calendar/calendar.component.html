@@ -1,6 +1,10 @@
 
-
 <mat-card class="center">
+ 
+    <form class="example-form" [formGroup] ="formValue">
+    <input formControlName="input" placeholder="Search by category">
+    <button mat-raised-button color="primary" type="submit" (click)="search()" ><mat-icon>find_in_page</mat-icon></button>
+  </form>   
     <h1 class="p1">Projects Schedual </h1>
 <button mat-raised-button color="primary" (click)="add()">Add Project to the calendar</button>
 <full-calendar [options]="calendarOptions"> </full-calendar>
