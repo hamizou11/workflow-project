@@ -4,23 +4,23 @@
       "title": "hamza",
       "author": "hamza",
       "category": "web",
-      "description": "<p><strong>this a new project</strong></p>",
+      "description": "<p><i><strong>this a new project</strong></i></p>",
       "start": "2022-08-07T22:00:00.000Z",
       "end": "2022-08-12T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 3,
+      "contributers": 2,
+      "rating": 4,
       "id": 1
     },
     {
-      "id": 2,
       "title": "hamza2",
       "author": "hamza",
-      "description": "<p>this is another project</p>",
       "category": "big data",
+      "description": "<p>this is another project</p>",
       "start": "2022-08-02T22:00:00.000Z",
       "end": "2022-08-05T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 0
+      "contributers": 1,
+      "rating": 4,
+      "id": 2
     }
   ],
   "comments": [

@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { EdiCalendComponent } from '../edi-calend/edi-calend.component';
-import { Observable, Subscriber,from, of, fromEvent, filter, map, concatMap, tap } from 'rxjs';
+import { Observable, Subscriber,from, of, fromEvent, filter, map, concatMap, tap, catchError, EMPTY } from 'rxjs';
 import { FormBuilder,FormGroup,FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-calendar',
@@ -59,10 +59,10 @@ export class CalendarComponent implements OnInit{
            }
           
     })  
-  /* this.api.get().pipe(map(project=>project.filter((project:any)=>project.title ==='hamza'))).subscribe((item)=>{
+   this.api.get().pipe(concatMap(project=>project),filter((project:any)=>project.title ==='hamza')).subscribe((item)=>{
       
       console.log(item)
-    });*/
+    });
     
 }   
 
@@ -75,13 +75,15 @@ add(){
   search(){
    // console.log( this.formValue.get('input')?.value);
     from(this.api.get()).pipe(
+    catchError(()=>EMPTY),
     map(project=>project.
-    filter((project:any)=>project.category ===this.formValue.get('input')?.value))).subscribe((item:ProjectModel[])=>{
+    filter((project:any)=>project.category===this.formValue.get('input')?.value))).subscribe((item:ProjectModel[])=>{
     this.result= item;
     this.calendarOptions={
       editable:true,
       events:this.result,
       }
+
       console.log(item)
     });
 
