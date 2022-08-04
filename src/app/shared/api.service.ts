@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
-import { exhaustMap, map, take } from 'rxjs/operators';
+import {  exhaustMap, map, take } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { ProjectModel } from '../project.module';
+import { User } from './user.model';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,7 +13,8 @@ import { ProjectModel } from '../project.module';
 export class ApiService {
 
   project : ProjectModel= new ProjectModel();
-
+  users: User[] = [];
+ 
   constructor(private http : HttpClient,private authService : AuthService) { }
   post(data :any){
     return this.http.post<any>("http://localhost:3000/projects",data).pipe(map((res:any)=>{ 
@@ -19,7 +22,7 @@ export class ApiService {
     }))
     
   }
-  get(){
+  /*get(){
    return  this.authService.user.pipe(take(1),exhaustMap(user =>{  return this.http.get<any>("http://localhost:3000/projects?auth="+user?.token) 
   }),  map((res:any)=>{ 
     return res ;
@@ -27,7 +30,10 @@ export class ApiService {
     );
    
     
-  }
+  }*/
+  get(): Observable<any>{
+    return this.http.get<any>("http://localhost:3000/projects");
+     }
   put(data :any ,id:number){
     return this.http.put<any>("http://localhost:3000/projects/"+id,data).pipe(map((res:any)=>{ 
       return res ;

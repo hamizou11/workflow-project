@@ -13,7 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { SignupComponent } from './signup/signup.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,6 +43,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { EdiCalendComponent } from './edi-calend/edi-calend.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import { TokenInterceptorService } from './shared/token-interceptor.service';
 
 
 
@@ -116,7 +117,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   
     
   ],
-  providers: [],
+  providers: [ {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],
   bootstrap: [AppComponent],
   
 })

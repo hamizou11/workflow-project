@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddProjectComponent } from '../add-project/add-project.component';
 import { EdiCalendComponent } from '../edi-calend/edi-calend.component';
-import { Observable, Subscriber,from, of, fromEvent, filter, map, concatMap, tap, catchError, EMPTY } from 'rxjs';
+import { Observable, Subscriber,from, of, fromEvent, filter, map, concatMap, tap, catchError, EMPTY,throwError } from 'rxjs';
 import { FormBuilder,FormGroup,FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-calendar',
@@ -18,10 +18,12 @@ import { FormBuilder,FormGroup,FormControl, Validators } from '@angular/forms';
 export class CalendarComponent implements OnInit{
   index:any;
   formValue !: FormGroup;
+  private errorMessage!: string;
+
   id:any;
   result :any;
   start:any;
-  private input!:FormControl;
+  input!:FormControl;
   project:ProjectModel[]=[];
   constructor(private api : ApiService,private router: ActivatedRoute,private dialog : MatDialog, private formBuilder : FormBuilder) {}
   calendarOptions!: CalendarOptions;
@@ -74,17 +76,20 @@ add(){
      }
   search(){
    // console.log( this.formValue.get('input')?.value);
-    from(this.api.get()).pipe(
-    catchError(()=>EMPTY),
+    this.api.get().pipe(
     map(project=>project.
-    filter((project:any)=>project.category===this.formValue.get('input')?.value))).subscribe((item:ProjectModel[])=>{
-    this.result= item;
-    this.calendarOptions={
+    filter((project:any)=>project.category===this.formValue.get('input')?.value)),
+    catchError(e => throwError(new Error("SOMETHING BAD HAPPENED")))
+
+    )
+   .subscribe((item:ProjectModel[])=>{
+     this.result= item,
+     this.calendarOptions={
       editable:true,
       events:this.result,
-      }
-
-      console.log(item)
+      },
+      console.error();
+      
     });
 
      }
