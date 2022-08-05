@@ -9,6 +9,7 @@ import { AuthService } from '../shared/auth.service';
 })
 export class NavbarComponent implements OnInit ,OnDestroy{
    isAuthenticated = false;
+   flashMessage:any;
   private userSub !: Subscription;
 
   constructor(private authService : AuthService) { }

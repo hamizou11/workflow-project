@@ -1,37 +1,15 @@
 {
   "projects": [
     {
-      "title": "hamza",
-      "author": "hamza",
-      "category": "web",
-      "description": "<p><i><strong>this a new project</strong></i></p>",
-      "start": "2022-08-07T22:00:00.000Z",
-      "end": "2022-08-12T22:00:00.000Z",
-      "contributers": 2,
-      "rating": 4,
-      "id": 1
-    },
-    {
-      "title": "hamza2",
-      "author": "hamza",
-      "category": "big data",
-      "description": "<p>this is another project</p>",
-      "start": "2022-08-02T22:00:00.000Z",
-      "end": "2022-08-05T22:00:00.000Z",
-      "contributers": 1,
-      "rating": 4,
-      "id": 2
-    },
-    {
-      "id": 3,
-      "title": "hamza1",
+      "title": "hamza uno",
       "author": "hamzaa",
-      "description": "<p>this is another project</p>",
       "category": "web",
+      "description": "<p>this is another project<strong> for getting started</strong></p>",
       "start": "2022-08-02T22:00:00.000Z",
       "end": "2022-08-05T22:00:00.000Z",
-      "contributers": 0,
-      "rating": 0
+      "contributers": 2,
+      "rating": 2,
+      "id": 3
     },
     {
       "id": 4,
@@ -43,6 +21,17 @@
       "end": "2022-08-09T22:00:00.000Z",
       "contributers": 0,
       "rating": 0
+    },
+    {
+      "title": "ecommerce",
+      "author": "hamza",
+      "category": "web",
+      "description": "<p>this a thesis project</p>",
+      "start": "2022-08-04T22:00:00.000Z",
+      "end": "2022-08-12T22:00:00.000Z",
+      "contributers": 0,
+      "rating": 5,
+      "id": 5
     }
   ],
   "comments": [

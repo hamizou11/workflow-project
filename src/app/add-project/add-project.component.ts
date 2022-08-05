@@ -32,7 +32,8 @@ export class AddProjectComponent implements OnInit {
       end :['',Validators.required]
     
   })
-  this.authService.autoLogin();
+  var user =(JSON.parse(localStorage.getItem('userData')|| '{ }' ));
+    console.log(user.role);
 }
 onSubmit (){
   if(this.formValue.valid){

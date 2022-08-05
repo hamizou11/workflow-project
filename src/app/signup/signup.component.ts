@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
     authObs.subscribe(res=> { 
     console.log(res);
     this.isLoading= false;
-    this.router.navigate(['/addproject']);
+    this.router.navigate(['/app/addproject']);
   },errorMessage =>{ 
     
     console.log(errorMessage);

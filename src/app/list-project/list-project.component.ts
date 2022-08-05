@@ -30,7 +30,6 @@ export class ListProjectComponent implements OnInit {
   constructor(  private api :ApiService,private route :ActivatedRoute ,private router: Router,private dialog : MatDialog) { }
   ngOnInit(): void {
     this.getAllProject();
-    //console.log(JSON.parse(localStorage.getItem('_token')));
   }
   getAllProject(){
 

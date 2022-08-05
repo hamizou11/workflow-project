@@ -44,6 +44,7 @@ import { EdiCalendComponent } from './edi-calend/edi-calend.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import { TokenInterceptorService } from './shared/token-interceptor.service';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 
@@ -70,7 +71,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CalendarComponent,
     ContributeComponent,
     RatingComponent,
-    EdiCalendComponent
+    EdiCalendComponent,
+    PagenotfoundComponent
   
    
  

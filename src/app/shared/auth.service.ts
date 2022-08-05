@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export interface AuthResponseData {
   idToken: string;
   email: string;
+  role:string;
   refreshToken: string;
   expiresIn: string;
   localId: string;
@@ -39,6 +40,7 @@ export class AuthService {
             res.email,
             res.localId,
             res.idToken,
+            res.role,
             +res.expiresIn
           );
         })
@@ -61,6 +63,7 @@ export class AuthService {
             res.email,
             res.localId,
             res.idToken,
+            res.role,
             +res.expiresIn
           );
         })
@@ -70,10 +73,11 @@ export class AuthService {
     email: string,
     token: string,
     userId: string,
+    role:string,
     expiresIn: number
   ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-    const user = new User(email, userId, token, expirationDate);
+    const user = new User(email, userId, token,role,expirationDate);
 
     this.user.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
@@ -84,6 +88,7 @@ export class AuthService {
       email: string;
       id: string;
       _token: string;
+      role:string;
       _tokenExpirationDate: string;
     } = JSON.parse(localStorage.getItem('userData')!);
     if (!userData) {
@@ -93,6 +98,7 @@ export class AuthService {
       userData.email,
       userData.id,
       userData._token,
+      userData.role,
       new Date(userData._tokenExpirationDate)
     );
     if (loadedUser.token) {
@@ -131,5 +137,16 @@ export class AuthService {
   logout() {
     this.user.next(null);
     this.router.navigate(['/signup']);
+    localStorage.removeItem('userData');
+    
+  }
+  haveAccess(){
+    var user =(JSON.parse(localStorage.getItem('userData')|| '{ }' ));
+    if(user.role=='admin'){ 
+      return true;
+    }
+   alert('you dont have the access');
+    return false;
+    
   }
 }
